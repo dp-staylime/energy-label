@@ -1,119 +1,81 @@
 # FAQ
 
-### General
+{% hint style="info" %}
+European Commission services in charge of the Energy labelling product registry, (EPREL), hold all rights, titles and interests in and to the API and/or data, including any copyrights. The energy labels, energy class badges, product information sheets and associated data are provided on an “as is” basis with no guarantees of completeness, accuracy, usefulness or timeliness.
+{% endhint %}
 
+<details>
 
+<summary><strong>How do I find the EPREL number for my products?</strong></summary>
 
-### What is the EU Energy Label app?
+There are three ways to locate it:
 
+1. Ask your supplier or manufacturer — they are required to provide the EPREL number.
+2. Scan the QR code on the product’s printed or digital energy label — it links to the EPREL page, where the number appears in the breadcrumb as gray digits.
+3. Find the EPREL numbers online in the [EPREL database](https://eprel.ec.europa.eu/screen/home). The EPREL number appears as **gray digits in the breadcrumbs** on the product page.
 
+</details>
 
-The EU Energy Label app by Staylime lets you display compliant energy efficiency labels, badges, and product information sheets on your Shopify storefront. It fetches product data automatically from the EPREL database using the product's registration number, and displays the correct label on product pages, collection pages, search results, the cart, and the cart drawer.
+<details>
 
+<summary><strong>Can the app use GTIN to fetch energy labels and product sheets?</strong></summary>
 
+Not yet. The app currently relies on the EPREL registration number. GTIN support is planned for 2025, once EPREL enables it through their updated API.
 
-### Where does the energy badge appear?
+</details>
 
+<details>
 
+<summary><strong>Can I manually set the energy class, label, and product sheet without using EPREL?</strong></summary>
 
-By default, after completing the setup, the energy badge appears on the **Product page**. To show it on Collection pages, Search results, Cart, and Cart Drawer, you need to configure CSS selectors in the Advanced Setup. See \[Advanced setup]\(/advanced-setup-displaying-energy-badges-on-collection-search-cart-and-cart-drawer).
+Yes, if a product isn’t listed in the EPREL database, you can simply **fill out three metafields** on the product level:
 
+* **Energy Class** (A+++ to G)
+* **Energy Label** (image file)
+* **Product Information Sheet** (PDF)
 
+There’s no special setting to activate — just enter the data, and the app will display it automatically.
 
-### Can I show the energy badge on my home page?
+</details>
 
+<details>
 
+<summary><strong>Does the app work with native Shopify variants?</strong></summary>
 
-Home page display is not supported out of the box. The app is designed for product-specific contexts (Product page, Collection, Search, Cart). Displaying badges in homepage sections (e.g., featured collections) requires custom development. Contact support to discuss a paid customization.
+Yes, it fully supports Shopify variants. To show energy labels per variant, simply use the EPREL Registration Number metafield at the variant level. The app will automatically display the correct badge and product sheet for each one.
 
+</details>
 
+<details>
 
-### What is EPREL?
+<summary><strong>Can the app automatically send EPREL data to Google Shopping?</strong></summary>
 
+No — it’s not handled by our app automatically, since merchants use different feed generators.&#x20;
 
+Google requires that the feed includes a special attribute `[certification]`, as outlined here: [Google Merchant Center Certification Attribute Requirements](https://support.google.com/merchants/answer/13528839).&#x20;
 
-EPREL (European Product Registry for Energy Labelling) is the official EU database where manufacturers register energy-related products. Each product gets a unique registration number that the app uses to fetch the correct energy label and product information sheet.
+You can extract the EPREL number directly from the EPREL Registration Number metafield provided by our app.&#x20;
 
+In short, for each product, the feed should include a certification attribute. You can extract the necessary EPREL number directly from the EPREL Registration Number metafield provided by our app.&#x20;
 
+If your current product feed solution supports custom attributes, you should be able to include this data yourself and stay fully compliant with EU regulations. If not — or if you’re unsure — we’d be happy to explore a custom integration for you.
 
-### Where do I find the EPREL Registration Number for my product?
+</details>
 
+<details>
 
+<summary><strong>Can the app use EPREL numbers from another metafield?</strong></summary>
 
-The EPREL Registration Number is provided by the product manufacturer. You can also look it up in the official EPREL database at eprel.ec.europa.eu by searching for your product model.
+At this time, the app does not support connecting to custom metafields for EPREL numbers. However, there’s a simple workaround: you can **migrate the data from your existing metafield to the app’s required metafield** using third-party tools such as [Matrixify](https://apps.shopify.com/excel-export-import).&#x20;
 
+This allows you to reuse existing EPREL values without manually re-entering them for every product or variant.
 
+</details>
 
-### Does the app support all Shopify themes?
+<details>
 
+<summary><strong>What themes does the app support?</strong></summary>
 
+The app supports most themes available at [Shopify Theme Store](https://themes.shopify.com/). However, we cannot guarantee compatibility with custom themes developed by third-party providers or highly customized ones.
 
-The app works with most standard Shopify themes. For custom or third-party themes, CSS selector configuration may be required (see Advanced Setup). Some third-party search and filter apps may override product container elements — if badges don't appear after setup, contact support with your theme name and we'll help troubleshoot.
-
-
-
-### Does the app work with Online Store 2.0 themes?
-
-
-
-Yes. The app supports Online Store 2.0 themes and uses app blocks that can be added via the Shopify theme editor without editing code.
-
-
-
-### Support
-
-
-
-### Why doesn't the energy label appear on my product page?
-
-
-
-The most common reason is that the **EPREL Registration Number** metafield is empty for that product. The app only renders the label when a valid EPREL number is present. Go to your product in Shopify admin, scroll to Metafields, and make sure the EU Energy Label: EPREL Registration Number field is filled in.
-
-
-
-### Why does the badge appear on the product page but not on collection / search / cart pages?
-
-
-
-These page types require manual CSS selector configuration. After installing the app, go to the app settings and enter the correct CSS selectors for each page type. See \[Advanced setup]\(/advanced-setup-displaying-energy-badges-on-collection-search-cart-and-cart-drawer) for step-by-step instructions.
-
-
-
-### The energy label popup looks broken or too small on iPhone / Safari — what should I do?
-
-
-
-This is a known display issue that was resolved in a recent app update. Make sure you have the latest version of the app installed. If the issue persists after updating, contact support with your store URL and a screenshot.
-
-
-
-### What happens when a customer clicks on the energy badge?
-
-
-
-Clicking the badge opens the full energy label in a new browser tab as a PDF or image, depending on what is registered in EPREL for that product.
-
-
-
-### I installed the app but the badge block doesn't appear in the theme editor — what should I do?
-
-
-
-Make sure the app embed is enabled. Go to your Shopify admin, then **Online Store → Themes → Customize**, click **App embeds** in the left panel, and toggle on the EU Energy Label embed. Then add the EU Energy Label block to your product template.
-
-
-
-### My product is not in the EPREL database — can I still show a label?
-
-
-
-Yes. Use the Manual Efficiency Class feature. Fill in the Energy Class, Energy Label image, and Product Information Sheet metafields directly on the product, and leave the EPREL Registration Number field empty. See \[Manual Efficiency Class for Legacy Products]\(/manual-efficiency-class-for-legacy-products).
-
-
-
-### Does the app support products with variants?
-
-
-
-Yes. You can assign a separate EPREL Registration Number to each variant via variant metafields. Note that variant-specific badges appear on Product pages, Cart, and Cart Drawer — but not on Collection or Search pages, which show the product-level badge. See \[Variants Support]\(/variants-support).
+</details>
